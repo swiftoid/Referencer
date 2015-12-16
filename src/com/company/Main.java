@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 /**
  * Created by swi94000733 on 01/12/2015.
  */
-
+// DO NOT EDIT inner PANEL, IF YOU DO, MAKE THE SAME SETTINGS FOR EACH FUNCTION IN PANELS.JAVA CLASS.
 public class Main extends Frame {
 
     public static String direct;
@@ -48,10 +48,12 @@ public class Main extends Frame {
     public TextField Ctextfield_3;
 
     // end centyert pannel //
-
+    public String content_bg = "#e5f7ff";
 
     public static void main(String args[]) throws IOException {
 
+
+        String content_bg = "#e5f7ff";
 
         String current = new java.io.File(".").getCanonicalPath();
         direct = current;
@@ -77,15 +79,13 @@ public class Main extends Frame {
 
         JButton btn_web = new JButton("Website");
         JButton btn_book = new JButton("Book");
-        JButton btn_blog = new JButton("Blog");
-        JButton btn_art = new JButton("Article");
-        JButton btn_save = new JButton("SAVE");
 
-        JTextPane Author = new JTextPane();
+
+
 
         // Set content panel
         JPanel content = new JPanel();
-        content.setBackground(Color.decode("#FFFFFF"));
+        content.setBackground(Color.decode(content_bg));
         content.setPreferredSize(new Dimension(400, 500));
 
         //Add items to HEADER panels
@@ -95,10 +95,6 @@ public class Main extends Frame {
         header.add(logo_panel);
         header.add(btn_web);
         header.add(btn_book);
-        header.add(btn_blog);
-        header.add(btn_art);
-        header.add(btn_save);
-        content.add(Author);
 
         //Add all panels to Frame
         frame.add(header);
@@ -106,6 +102,8 @@ public class Main extends Frame {
         //
 
         JPanel left = new JPanel();
+        left.setBackground(Color.decode(content_bg));
+
 
         //Left Panel ///
 
@@ -132,6 +130,7 @@ public class Main extends Frame {
         inner.add(inner_txt);
 
         JPanel center = new JPanel();
+        center.setBackground(Color.decode(content_bg));
         //Center Panel
 
 
@@ -153,6 +152,7 @@ public class Main extends Frame {
         center.removeAll();
         Panels newer = new Panels();
         inner = newer.bookpanel();
+        inner.setBackground(Color.decode(content_bg));
         center.add(inner);
         frame.pack();
 
@@ -163,6 +163,7 @@ public class Main extends Frame {
                 Panels newer = new Panels();
                 JPanel inner = new JPanel();
                 inner = newer.webpanel();
+                inner.setBackground(Color.decode(content_bg));
                 center.add(inner);
                 frame.pack();
             }
@@ -174,6 +175,7 @@ public class Main extends Frame {
                 Panels newer = new Panels();
                 JPanel inner = new JPanel();
                 inner = newer.bookpanel();
+                inner.setBackground(Color.decode(content_bg));
                 center.add(inner);
                 frame.pack();
             }
