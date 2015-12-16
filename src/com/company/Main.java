@@ -85,6 +85,7 @@ public class Main extends Frame {
 
         // Set content panel
         JPanel content = new JPanel();
+        content.setLayout( new BoxLayout(content, BoxLayout.X_AXIS));
         content.setBackground(Color.decode(content_bg));
         content.setPreferredSize(new Dimension(400, 500));
 
@@ -108,6 +109,10 @@ public class Main extends Frame {
         //Left Panel ///
 
         left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
+        left.setMaximumSize(new Dimension(250, 150));
+        left.setAlignmentX(Component.LEFT_ALIGNMENT);
+        left.setAlignmentY(Component.TOP_ALIGNMENT);
+
         JLabel label_1 = new JLabel("BOOK SEARCH");
         left.add(label_1);
         TextField textfield_1 = new TextField(20);
@@ -131,6 +136,9 @@ public class Main extends Frame {
 
         JPanel center = new JPanel();
         center.setBackground(Color.decode(content_bg));
+        center.setMaximumSize(new Dimension(450, 500));
+        center.setAlignmentX(Component.LEFT_ALIGNMENT);
+        center.setAlignmentY(Component.TOP_ALIGNMENT);
         //Center Panel
 
 

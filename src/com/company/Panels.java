@@ -45,7 +45,36 @@ public class Panels {
 
 
         JButton Cbutton = new JButton("Create Reference");
+        JButton example = new JButton("Generate Example");
         inner.add(Cbutton);
+        inner.add(example);
+
+        Cbutton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String author = Ctextfield_1.getText();
+                String date = Ctextfield_2.getText();
+                String title = Ctextfield_3.getText();
+                String publisher = Ctextfield_4.getText();
+                String addr = Ctextfield_5.getText();
+                String accessed = Ctextfield_6.getText();
+
+                // The output string (used html tags for format)
+                String to_return = author + ", (" + date + "). \"<i>" + title + "</i>\"." + publisher + ". [online] avaiable at: " + addr + ". Last accessed: " + accessed;
+                System.out.println(to_return);
+
+            }
+        });
+
+        example.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Ctextfield_1.setText("C. Cox");
+                Ctextfield_2.setText("22/01/2009");
+                Ctextfield_3.setText("How to make a referencer");
+                Ctextfield_4.setText("website.com");
+                Ctextfield_5.setText("http://website.com/article/23432224423");
+                Ctextfield_6.setText("16/12/15");
+            }
+        });
 
         return inner;
 
