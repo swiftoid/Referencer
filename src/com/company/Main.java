@@ -1,5 +1,7 @@
 package com.company;
 
+import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
+
 import javax.imageio.plugins.jpeg.JPEGHuffmanTable;
 import javax.swing.*;
 import java.awt.*;
@@ -100,33 +102,57 @@ public class Main extends Frame {
         //Add all panels to Frame
         frame.add(header);
 
-        //
-
-        JPanel left = new JPanel();
-        left.setBackground(Color.decode(content_bg));
-
 
         //Left Panel ///
-
+        JPanel left = new JPanel();
+        left.setBackground(Color.decode(content_bg));
         left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
-        left.setMaximumSize(new Dimension(250, 150));
+        left.setMaximumSize(new Dimension(250, 450));
         left.setAlignmentX(Component.LEFT_ALIGNMENT);
         left.setAlignmentY(Component.TOP_ALIGNMENT);
 
-        JLabel label_1 = new JLabel("BOOK SEARCH");
+        JLabel label_1 = new JLabel("Search By ISBN:");
         left.add(label_1);
         TextField textfield_1 = new TextField(20);
         left.add(textfield_1);
-        JLabel label_2 = new JLabel("Enter Title of Publication");
-        left.add(label_2);
-        TextField textfield_2 = new TextField(20);
-        left.add(textfield_2);
-        JLabel label_3 = new JLabel("Enter Date of Publication");
-        left.add(label_3);
-        TextField textfield_3 = new TextField(20);
-        left.add(textfield_3);
-        JButton button = new JButton("SEARCH INTERNET");
+        JButton button = new JButton("SEARCH");
         left.add(button);
+        // Start search panel for putting results
+        JPanel search_panel = new JPanel();
+        search_panel.setBackground(Color.blue); //
+        search_panel.setPreferredSize(new Dimension(250, 385));
+        JPanel search_inner = new JPanel();
+        search_inner.setPreferredSize(new Dimension(250, 385));
+        search_inner.setBackground(Color.blue); //
+        search_panel.add(search_inner);
+        left.add(search_panel);
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                search_panel.removeAll();
+                ISBN_Search search = new ISBN_Search();
+
+                JPanel search_inner = new JPanel();
+                search_inner.setBackground(Color.blue);
+                try {
+                    search.run_search("0201558025");// run the search with ISBN textfield as value
+                    JLabel tester = new JLabel(search.getIsbn_title());
+                    search_inner.add(tester);
+                } catch (Exception ex) {
+                   System.out.println("Failed...");
+                    System.out.println(ex.getMessage());
+                    JLabel tester = new JLabel("Does not exist");
+                    search_inner.add(tester);
+                }
+
+                search_panel.add(search_inner);
+                //JPanel inner = new JPanel();
+                //inner = search;
+                //inner.setBackground(Color.decode(content_bg));
+                //center.add(inner);
+                frame.pack();
+            }
+        });
+        // End of search panel
         //End of Left Panel
 
         JPanel inner = new JPanel();
@@ -191,7 +217,9 @@ public class Main extends Frame {
 
 
     }
+public void AutoAdd(JPanel MainPanel) {
 
+}
 }
 
 
