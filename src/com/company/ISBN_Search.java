@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,7 +19,7 @@ import org.json.JSONObject;
  * Created by Chris on 16/12/2015.
  */
 
-// EXAMPLE API URL: http://openlibrary.org/api/books?bibkeys=ISBN:0201558025&jscmd=details
+// Example of Google API: https://www.googleapis.com/books/v1/volumes?q=9781118607961
 public class ISBN_Search {
 
     private Boolean isbn_exists;
@@ -26,18 +28,22 @@ public class ISBN_Search {
     private String isbn_author;
     private String isbn_desc;
     private String isbn_date;
+    private String isbn_pub;
 
     public void run_search(String isbn) throws Exception{
-        this.isbn_exists = false;
-        String url =  "http://openlibrary.org/api/books?bibkeys=ISBN:"+isbn+"&jscmd=details";
+        String url =  "https://www.googleapis.com/books/v1/volumes?q="+isbn;
         System.out.println(url);
         JSONObject json = readJsonFromUrl(url);
-        JSONObject all = (JSONObject) json.get("var _OLBookInfo");
-        JSONObject ISBN = (JSONObject) all.get("ISBN:0201558025");
-        JSONObject details = (JSONObject) ISBN.get("details");
-
-        System.out.println(json.toString());
-        this.isbn_title = details.get("title").toString();
+        JSONObject fr = (json.getJSONArray("items")).getJSONObject(0); // First result
+        JSONArray authors = (fr.getJSONObject("volumeInfo")).getJSONArray("authors");
+        String title = (fr.getJSONObject("volumeInfo")).get("title").toString();
+        System.out.println(title);
+        this.isbn_title = title;
+        this.isbn_desc = "{This Needs to be set}";
+        this.isbn_author = authors.get(0).toString();
+        this.isbn_date = (fr.getJSONObject("volumeInfo")).get("publishedDate").toString();
+        this.isbn_pub = (fr.getJSONObject("volumeInfo")).get("publisher").toString();
+        System.out.println(authors.get(0).toString());
     }
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
@@ -53,7 +59,7 @@ public class ISBN_Search {
         try {
             BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
             String jsonText = readAll(rd);
-            JSONObject json = new JSONObject("{" + jsonText + "}");
+            JSONObject json = new JSONObject(jsonText);
             return json;
         } finally {
             is.close();
@@ -76,5 +82,8 @@ public class ISBN_Search {
     }
     public String getIsbn_date() {
         return isbn_date;
+    }
+    public String getIsbn_pub() {
+        return isbn_pub;
     }
 }

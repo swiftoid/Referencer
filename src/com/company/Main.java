@@ -1,5 +1,6 @@
 package com.company;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
 
 import javax.imageio.plugins.jpeg.JPEGHuffmanTable;
@@ -20,53 +21,28 @@ import javax.swing.JTextField;
  * Created by swi94000733 on 01/12/2015.
  */
 // DO NOT EDIT inner PANEL, IF YOU DO, MAKE THE SAME SETTINGS FOR EACH FUNCTION IN PANELS.JAVA CLASS.
+
 public class Main extends Frame {
 
     public static String direct;
-
-    //Left Panel
-
-    public JLabel label_1;
-    public JButton button;
-    public TextField textfield_1;
-    public JLabel label_2;
-    public TextField textfield_2;
-    public JLabel label_3;
-    public TextField textfield_3;
-
-
-    // end left pannel //
-
-    public JPanel inner;
-
-    // center pannel //
-
-    public JLabel Clabel_1;
-    public JButton Cbutton;
-    public TextField Ctextfield_1;
-    public JLabel Clabel_2;
-    public TextField Ctextfield_2;
-    public JLabel Clabel_3;
-    public TextField Ctextfield_3;
-
-    // end centyert pannel //
-    public String content_bg = "#e5f7ff";
-
     public static void main(String args[]) throws IOException {
 
 
-        String content_bg = "#e5f7ff";
+        // Default content background
+        String content_bg = "#9BC29E";
 
+        // Get the files current directory
         String current = new java.io.File(".").getCanonicalPath();
         direct = current;
 
+        // Create main Form
         System.out.println("starting form");
         JFrame frame = new JFrame("Her Majesties Referencer");
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 300);
 
-
+        // Create header panel for image and buttons
         JPanel header = new JPanel();
         header.setBackground(Color.decode("#2d2d2f"));
         header.setPreferredSize(new Dimension(700, 50));
@@ -78,11 +54,9 @@ public class Main extends Frame {
         JLabel pn = new JLabel("crown.png");
         pn.setForeground(Color.decode("#FFFFFF"));
 
-
+        // create header buttons
         JButton btn_web = new JButton("Website");
         JButton btn_book = new JButton("Book");
-
-
 
 
         // Set content panel
@@ -92,18 +66,13 @@ public class Main extends Frame {
         content.setPreferredSize(new Dimension(400, 500));
 
         //Add items to HEADER panels
-
         logo_panel.add(pn);
-
         header.add(logo_panel);
         header.add(btn_web);
         header.add(btn_book);
 
-        //Add all panels to Frame
-        frame.add(header);
 
-
-        //Left Panel ///
+        // Create Left Panel (ISBN search)
         JPanel left = new JPanel();
         left.setBackground(Color.decode(content_bg));
         left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
@@ -114,81 +83,53 @@ public class Main extends Frame {
         JLabel label_1 = new JLabel("Search By ISBN:");
         left.add(label_1);
         TextField textfield_1 = new TextField(20);
+        textfield_1.setText("9781118008188"); // SET AN EXAMPLE ISBN (HTML & CSS By Jon Duckett)
         left.add(textfield_1);
-        JButton button = new JButton("SEARCH");
-        left.add(button);
+        JButton search_button = new JButton("SEARCH");
+        left.add(search_button);
+
         // Start search panel for putting results
         JPanel search_panel = new JPanel();
-        search_panel.setBackground(Color.blue); //
+        search_panel.setBackground(Color.decode(content_bg)); //
         search_panel.setPreferredSize(new Dimension(250, 385));
         JPanel search_inner = new JPanel();
         search_inner.setPreferredSize(new Dimension(250, 385));
-        search_inner.setBackground(Color.blue); //
+        search_inner.setBackground(Color.decode(content_bg)); //
         search_panel.add(search_inner);
         left.add(search_panel);
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                search_panel.removeAll();
-                ISBN_Search search = new ISBN_Search();
-
-                JPanel search_inner = new JPanel();
-                search_inner.setBackground(Color.blue);
-                try {
-                    search.run_search("0201558025");// run the search with ISBN textfield as value
-                    JLabel tester = new JLabel(search.getIsbn_title());
-                    search_inner.add(tester);
-                } catch (Exception ex) {
-                   System.out.println("Failed...");
-                    System.out.println(ex.getMessage());
-                    JLabel tester = new JLabel("Does not exist");
-                    search_inner.add(tester);
-                }
-
-                search_panel.add(search_inner);
-                //JPanel inner = new JPanel();
-                //inner = search;
-                //inner.setBackground(Color.decode(content_bg));
-                //center.add(inner);
-                frame.pack();
-            }
-        });
         // End of search panel
         //End of Left Panel
-
         JPanel inner = new JPanel();
-        inner.setLayout(new BoxLayout(inner, BoxLayout.Y_AXIS));
-        JLabel inner_txt = new JLabel("dasfasdas");
-        inner.add(inner_txt);
 
         JPanel center = new JPanel();
         center.setBackground(Color.decode(content_bg));
         center.setMaximumSize(new Dimension(450, 500));
         center.setAlignmentX(Component.LEFT_ALIGNMENT);
         center.setAlignmentY(Component.TOP_ALIGNMENT);
-        //Center Panel
-
-
-        //End of Center Panel
-
-
-        // ADD content to frame //
+        // add content to center panel
         content.add(left);
         content.add(center);
         center.add(inner);
+
+
+
+        //Add all panels to Frame and complete
+        frame.add(header);
         frame.add(content);
-
-
-        // complete the form
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
 
+        // Call for web to be first form shown
         center.removeAll();
         Panels newer = new Panels();
-        inner = newer.bookpanel();
+        inner = newer.webpanel();
         inner.setBackground(Color.decode(content_bg));
+        inner.setPreferredSize(new Dimension(400, 400));
         center.add(inner);
         frame.pack();
+
+
 
         // button ONCLICK events
         btn_web.addActionListener(new ActionListener() {
@@ -198,6 +139,7 @@ public class Main extends Frame {
                 JPanel inner = new JPanel();
                 inner = newer.webpanel();
                 inner.setBackground(Color.decode(content_bg));
+                inner.setPreferredSize(new Dimension(400, 400));
                 center.add(inner);
                 frame.pack();
             }
@@ -210,13 +152,64 @@ public class Main extends Frame {
                 JPanel inner = new JPanel();
                 inner = newer.bookpanel();
                 inner.setBackground(Color.decode(content_bg));
+                inner.setPreferredSize(new Dimension(400, 400));
                 center.add(inner);
                 frame.pack();
             }
         });
 
+        // Search button config
+        search_button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                search_panel.removeAll();
+                ISBN_Search search = new ISBN_Search();
+
+                JPanel search_inner = new JPanel();
+                search_inner.setBackground(Color.decode(content_bg));
+                try {
+                    search.run_search(textfield_1.getText());// run the search with ISBN textfield as value
+                    String res_title = search.getIsbn_title();
+                    String res_author = search.getIsbn_author();
+                    String res_date = search.getIsbn_date();
+                    String res_pub = search.getIsbn_pub();
+                    String res_desc = search.getIsbn_desc();
+
+                    JLabel tester = new JLabel(search.getIsbn_title());
+                    search_inner.add(tester);
+
+                    JButton auto_gen = new JButton("Auto fill..");
+                    search_inner.add(auto_gen);
+                    auto_gen.addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            center.removeAll();
+                            Panels newer = new Panels();
+                            newer.setAuto_book_author(res_author);
+                            newer.setAuto_book_title(res_title);
+                            newer.setAuto_book_date(res_date);
+                            newer.setAuto_book_publisher(res_pub);
+                            JPanel inner = new JPanel();
+                            inner = newer.bookpanel();
+                            inner.setBackground(Color.decode(content_bg));
+                            inner.setPreferredSize(new Dimension(400, 400));
+                            center.add(inner);
+                            frame.pack();
+                        }
+                    });
+                } catch (Exception ex) {
+                    System.out.println("Failed...");
+                    System.out.println(ex.getMessage());
+                    JLabel tester = new JLabel("Does not exist");
+                    search_inner.add(tester);
+                }
+
+                search_panel.add(search_inner);
+                frame.pack();
+            }
+        });
 
     }
+
+// Function for auto completing forms.
 public void AutoAdd(JPanel MainPanel) {
 
 }
