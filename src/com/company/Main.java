@@ -22,6 +22,10 @@ import javax.swing.JTextField;
  */
 // DO NOT EDIT inner PANEL, IF YOU DO, MAKE THE SAME SETTINGS FOR EACH FUNCTION IN PANELS.JAVA CLASS.
 
+
+
+    // Andy Swift 2nd Jan 2016
+
 public class Main extends Frame {
 
     public static String direct;
