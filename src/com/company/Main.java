@@ -47,6 +47,7 @@ public class Main extends Frame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 300);
 
+
         // Create header panel for image and buttons
         JPanel header = new JPanel();
         header.setBackground(Color.decode("#2d2d2f"));
@@ -62,6 +63,7 @@ public class Main extends Frame {
         // create header buttons
         JButton btn_web = new JButton("Website");
         JButton btn_book = new JButton("Book");
+        JButton database = new JButton("Connect");
 
 
         // Set content panel
@@ -75,6 +77,7 @@ public class Main extends Frame {
         header.add(logo_panel);
         header.add(btn_web);
         header.add(btn_book);
+        header.add(database);
 
 
         // Create Left Panel (ISBN search)
@@ -137,6 +140,13 @@ public class Main extends Frame {
 
 
         // button ONCLICK events
+
+
+
+
+
+
+
         btn_web.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 center.removeAll();
@@ -147,6 +157,19 @@ public class Main extends Frame {
                 inner.setPreferredSize(new Dimension(400, 400));
                 center.add(inner);
                 frame.pack();
+            }
+        });
+
+
+
+        database.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+
+            Db_connect clicked = new Db_connect();
+
+                String ret_data = clicked.connect("sadjkslahdjksahjdksa");
+                System.out.println(ret_data);
+
             }
         });
 
