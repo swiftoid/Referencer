@@ -1,9 +1,7 @@
-package com.company;
-
 /**
  * Created by Andy on 02/01/2016.
  */
-public class Db_connect {
+public static class Db_connect {
 
     public String connect(String data) {
 

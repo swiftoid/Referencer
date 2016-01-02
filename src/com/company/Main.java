@@ -1,21 +1,10 @@
 package com.company;
 
-import com.sun.xml.internal.bind.v2.TODO;
-import jdk.internal.org.objectweb.asm.tree.TryCatchBlockNode;
-
-import javax.imageio.plugins.jpeg.JPEGHuffmanTable;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-
-import javax.swing.text.DefaultStyledDocument;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
-import javax.swing.text.StyledDocument;
-import javax.swing.text.BadLocationException;
-import javax.swing.JTextField;
 
 /**
  * Created by swi94000733 on 01/12/2015.
@@ -165,7 +154,7 @@ public class Main extends Frame {
         database.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-            Db_connect clicked = new Db_connect();
+            ISBN_Search.Db_connect clicked = new ISBN_Search.Db_connect();
 
                 String ret_data = clicked.connect("sadjkslahdjksahjdksa");
                 System.out.println(ret_data);
