@@ -154,7 +154,7 @@ public class Main extends Frame {
         database.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
-            ISBN_Search.Db_connect clicked = new ISBN_Search.Db_connect();
+            Db_connect clicked = new Db_connect();
 
                 String ret_data = clicked.connect("sadjkslahdjksahjdksa");
                 System.out.println(ret_data);
