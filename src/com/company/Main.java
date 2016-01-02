@@ -25,6 +25,7 @@ import javax.swing.JTextField;
 
 
     // Andy Swift 2nd Jan 2016 dthwrth
+    // chris cox hghjghjghjghjgjhgjgjghgj
 
 public class Main extends Frame {
 
@@ -34,7 +35,7 @@ public class Main extends Frame {
 
         // Default content background
         String content_bg = "#9BC29E";
-
+        // ggg
         // Get the files current directory
         String current = new java.io.File(".").getCanonicalPath();
         direct = current;
