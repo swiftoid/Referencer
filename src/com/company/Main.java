@@ -22,7 +22,7 @@ import javax.swing.JTextField;
  */
 // DO NOT EDIT inner PANEL, IF YOU DO, MAKE THE SAME SETTINGS FOR EACH FUNCTION IN PANELS.JAVA CLASS.
 
-
+  // TODO  Reon to create the bottom pannel for output of final reference
 
     // Andy Swift 2nd Jan 2016 dthwrth
     // chris cox hghjghjghjghjgjhgjgjghgj
