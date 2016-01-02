@@ -24,7 +24,7 @@ import javax.swing.JTextField;
 
 
 
-    // Andy Swift 2nd Jan 2016
+    // Andy Swift 2nd Jan 2016 dthwrth
 
 public class Main extends Frame {
 
