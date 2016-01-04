@@ -25,13 +25,13 @@ public class Db_connect {
            {
 
                // connection  variables
-               String host2 = "localhost";
+               String host2 = "127.0.0.1";
                String user = "root";
-               String pass = "Jim1doogan";
+               String pass = "";
 
 
                //SQL querey string
-               String str = "SELECT  * from reference where id = 2";
+               String str = "SELECT  * from referencer";
 
 
                // create the sql connection
@@ -55,7 +55,8 @@ public class Db_connect {
 
                con.close();
 
-
+               // print to terminal the content of reference table
+               System.out.print(str + "your ref");
 
 
            } catch (
