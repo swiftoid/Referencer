@@ -52,7 +52,7 @@ public class Main extends Frame {
         // create header buttons
         JButton btn_web = new JButton("Website");
         JButton btn_book = new JButton("Book");
-        JButton database = new JButton("Connect");
+        JButton database = new JButton("Add to database");
 
 
         // Set content panel
@@ -132,10 +132,6 @@ public class Main extends Frame {
 
 
 
-
-
-
-
         btn_web.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 center.removeAll();
@@ -156,7 +152,7 @@ public class Main extends Frame {
 
             Db_connect clicked = new Db_connect();
 
-                String ret_data = clicked.connect("sadjkslahdjksahjdksa");
+                String ret_data = clicked.connect("Reference added to Database");
                 System.out.println(ret_data);
 
             }
