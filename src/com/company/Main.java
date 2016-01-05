@@ -108,11 +108,18 @@ public class Main extends Frame {
         content.add(center);
         center.add(inner);
 
+        //Add bottom Panel
+        JPanel bottom = new JPanel();
+        bottom.setBackground(Color.decode("#ffffff"));;
+        bottom.setPreferredSize(new Dimension(700, 100));
+        bottom.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+
 
 
         //Add all panels to Frame and complete
         frame.add(header);
         frame.add(content);
+        frame.add(bottom);
         frame.pack();
         frame.setVisible(true);
         frame.setResizable(false);
