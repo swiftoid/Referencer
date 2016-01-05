@@ -16,7 +16,7 @@ public class Panels {
 
     private Font titleFont = new Font("Calibri", Font.TRUETYPE_FONT, 24);
     private Font mainFont = new Font("Calibri", Font.TRUETYPE_FONT, 18);
-    public JPanel webpanel(){
+    public JPanel webpanel(JEditorPane jep){
         JPanel inner = new JPanel();
 
         inner.setLayout(new BoxLayout(inner, BoxLayout.Y_AXIS));
@@ -39,7 +39,7 @@ public class Panels {
         JTextField Ctextfield_1 = new JTextField(20);
         inner.add(Ctextfield_1);
 
-        JLabel Clabel_2 = new JLabel("Date");
+        JLabel Clabel_2 = new JLabel("Year of publication");
         Clabel_2.setFont(mainFont);
         inner.add(Clabel_2);
         JTextField Ctextfield_2 = new JTextField(20);
@@ -78,27 +78,31 @@ public class Panels {
         Cbutton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String author = Ctextfield_1.getText();
+                    author = author.split(" ")[1] + ", " + (author.split(" ")[0]).charAt(0) + ". ";
                 String date = Ctextfield_2.getText();
                 String title = Ctextfield_3.getText();
+                    title = " \"<i>"+title + "</i>\". ";
                 String publisher = Ctextfield_4.getText();
                 String addr = Ctextfield_5.getText();
+
                 String accessed = Ctextfield_6.getText();
-
+                String full = author + date + title + publisher + ". [ONLINE] Available at: " + addr + " [Accessed: " + accessed + "]";
                 // The output string (used html tags for format)
-                String to_return = author + ", (" + date + "). \"<i>" + title + "</i>\"." + publisher + ". [online] avaiable at: " + addr + ". Last accessed: " + accessed;
-                System.out.println(to_return);
+                //String to_return = author + ", (" + date + "). \"<i>" + title + "</i>\"." + publisher + ". [online] avaiable at: " + addr + ". Last accessed: " + accessed;
+                //System.out.println(to_return);
 
+                jep.setText("<div style=\"font-family:calibri;width:400px\">" + full + "</center>");
             }
         });
 
         example.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Ctextfield_1.setText("C. Cox");
-                Ctextfield_2.setText("22/01/2009");
+                Ctextfield_1.setText("Chris Cox");
+                Ctextfield_2.setText("2009");
                 Ctextfield_3.setText("How to make a referencer");
                 Ctextfield_4.setText("website.com");
                 Ctextfield_5.setText("http://website.com/article/23432224423");
-                Ctextfield_6.setText("16/12/15");
+                Ctextfield_6.setText("16th December 2015");
             }
         });
 
@@ -110,7 +114,7 @@ public class Panels {
 
 
 
-    public JPanel bookpanel(){
+    public JPanel bookpanel(JEditorPane jep){
         JPanel inner = new JPanel();
         inner.setLayout(new BoxLayout(inner, BoxLayout.Y_AXIS));
 
@@ -145,6 +149,18 @@ public class Panels {
         Ctextfield_3.setText(this.auto_book_date);
         inner.add(Ctextfield_3);
 
+        JLabel Clabel_drop = new JLabel("Enter date of publication:");
+        Clabel_drop.setFont(mainFont);
+        inner.add(Clabel_drop);
+
+        // all the items in the drop-down list -- needs more adding
+        String[] editions = { "1st", "2nd", "3rd", "4th", "5th" };
+
+        //Create the combo box, select item at index 4.
+        //Indices start at 0, so 4 specifies the pig.
+        JComboBox edition_list = new JComboBox(editions);
+        inner.add(edition_list);
+
         JLabel Clabel_4 = new JLabel("Enter publisher:");
         Clabel_4.setFont(mainFont);
         inner.add(Clabel_4);
@@ -161,10 +177,33 @@ public class Panels {
 
 
         JButton Cbutton = new JButton("Create reference");
+        JButton Example = new JButton("Exampple");
+
+        Example.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Ctextfield_1.setText("Chris Cox");
+                Ctextfield_2.setText("2009");
+                Ctextfield_3.setText("How to make a referencer");
+                Ctextfield_4.setText("website.com");
+                Ctextfield_5.setText("http://website.com/article/23432224423");
+            }
+        });
         inner.add(Cbutton);
+        inner.add(Example);
 
         Cbutton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                String author = Ctextfield_1.getText();
+                author = author.split(" ")[1] + ", " + (author.split(" ")[0]).charAt(0) + ". ";
+                String date = Ctextfield_2.getText();
+                String title = Ctextfield_3.getText();
+                title = " \"<i>"+title + "</i>\". ";
+                String publisher = Ctextfield_4.getText();
+                String addr = Ctextfield_5.getText();
+
+
+                jep.setText("<div style=\"font-family:calibri;width:400px\">"+author+"</center>");
+
                 System.out.println(Ctextfield_1.getText() + " is the author");
                 Ctextfield_5.setText(Ctextfield_1.getText() + "\"" + Ctextfield_4.getText() + "\"");
 

@@ -14,7 +14,6 @@ import java.io.IOException;
   // TODO  Reon to create the bottom pannel for output of final reference
 
     // Andy Swift 2nd Jan 2016 dthwrth
-    // chris cox hghjghjghjghjgjhgjgjghgj
 
 public class Main extends Frame {
 
@@ -115,6 +114,16 @@ public class Main extends Frame {
         bottom.setAlignmentY(Component.BOTTOM_ALIGNMENT);
 
 
+        //Add textfeild to bottom panel
+        JEditorPane jep = new JEditorPane();
+        jep.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(jep);
+        jep.setContentType("text/html");
+        jep.setText("<html><i>Your reference will be outputted here</i></html>");
+
+        bottom.add(jep);
+
+
 
         //Add all panels to Frame and complete
         frame.add(header);
@@ -127,7 +136,7 @@ public class Main extends Frame {
         // Call for web to be first form shown
         center.removeAll();
         Panels newer = new Panels();
-        inner = newer.webpanel();
+        inner = newer.webpanel(jep);
         inner.setBackground(Color.decode(content_bg));
         inner.setPreferredSize(new Dimension(400, 400));
         center.add(inner);
@@ -144,7 +153,7 @@ public class Main extends Frame {
                 center.removeAll();
                 Panels newer = new Panels();
                 JPanel inner = new JPanel();
-                inner = newer.webpanel();
+                inner = newer.webpanel(jep);
                 inner.setBackground(Color.decode(content_bg));
                 inner.setPreferredSize(new Dimension(400, 400));
                 center.add(inner);
@@ -170,7 +179,7 @@ public class Main extends Frame {
                 center.removeAll();
                 Panels newer = new Panels();
                 JPanel inner = new JPanel();
-                inner = newer.bookpanel();
+                inner = newer.bookpanel(jep);
                 inner.setBackground(Color.decode(content_bg));
                 inner.setPreferredSize(new Dimension(400, 400));
                 center.add(inner);
@@ -208,7 +217,7 @@ public class Main extends Frame {
                             newer.setAuto_book_date(res_date);
                             newer.setAuto_book_publisher(res_pub);
                             JPanel inner = new JPanel();
-                            inner = newer.bookpanel();
+                            inner = newer.bookpanel(jep);
                             inner.setBackground(Color.decode(content_bg));
                             inner.setPreferredSize(new Dimension(400, 400));
                             center.add(inner);
