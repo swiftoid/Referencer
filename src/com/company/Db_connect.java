@@ -11,69 +11,76 @@ import java.sql.*;
  * Created by Andy on 02/01/2016.
  */
 ;
+         // todo still having bother with db conection .. ?
+
 
 public class Db_connect {
 
-       public String connect(String data) {
 
-           {
+    public String connect(String data) {
 
-
-           }
-           try
-
-           {
-
-               // connection  variables
-               String host2 = "127.0.0.1";
-               String user = "root";
-               String pass = "";
+        {
 
 
-               //SQL querey string
-               String str = "SELECT  * from referencer";
+        }
+        try
+
+        {
+
+            // connection  variables
+            String host2 = "127.0.0.1";
+            String user = "root";
+            String pass = "";
 
 
-               // create the sql connection
-               Connection con = DriverManager.getConnection(host2, user, pass);
+            //SQL querey string
+            String str = "SELECT  * from referencer";
 
 
-               // create statement for database insert
-               Statement st = con.createStatement();
+            // create the sql connection
+            Connection con = DriverManager.getConnection(host2, user, pass);
 
 
-               // execute querey   // change argumen to change to insert command
-               ResultSet rs =  st.executeQuery(str);
+            // create statement for database insert
+            Statement st = con.createStatement();
 
 
-              // GET THE STING FROM THE DATABASE // ARGUMENT LOOKS IN COLUMN 2.
-               String name = rs.getString(2);
-               // move the value to 2ND ROW TO GE STRING.
-               rs. next();
-
-               // close the connection to the db
-
-               con.close();
-
-               // print to terminal the content of reference table
-               System.out.print(str + "your ref");
+            // execute querey   // change argument to change to insert command
+            ResultSet rs = st.executeQuery(str);
 
 
-           } catch (
-                   SQLException err
-                   )
+            // GET THE STING FROM THE DATABASE // ARGUMENT LOOKS IN COLUMN 2.
+            String reference = rs.getString(2);
+            // move the value to 2ND ROW TO GE STRING.
+            rs.next();
 
-           {
-
-               System.out.println(err.getMessage());
-
-           }
+            // close the connection to the db
+            con.close();
 
 
-           String data2 = data ;
-           return data2;
+            // TODO  will this str results to carry through Main.java pannel
+            // print to terminal the content of reference table
+            System.out.print(str + "your ref");
+            return str;
 
-       }
+
+        } catch (
+                SQLException err
+                )
+
+        {
+
+            System.out.println(err.getMessage());
+
+        }
+
+
+        String data2 = data;
+        return data2;
+        // System.out.print(str + "your ref");
+        //  return str;
+
+    }
 
 
 

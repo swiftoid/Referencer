@@ -1,9 +1,12 @@
 package com.company;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 
 /**
@@ -11,7 +14,7 @@ import java.io.IOException;
  */
 // DO NOT EDIT inner PANEL, IF YOU DO, MAKE THE SAME SETTINGS FOR EACH FUNCTION IN PANELS.JAVA CLASS.
 
-  // TODO  Reon to create the bottom pannel for output of final reference
+
 
     // Andy Swift 2nd Jan 2016 dthwrth
 
@@ -48,6 +51,12 @@ public class Main extends Frame {
         JLabel pn = new JLabel("crown.png");
         pn.setForeground(Color.decode("#FFFFFF"));
 
+
+        //todo Look at images in panel
+      //  BufferedImage myPicture = ImageIO.read(new File("path-to-file"));
+     //  JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+
+
         // create header buttons
         JButton btn_web = new JButton("Website");
         JButton btn_book = new JButton("Book");
@@ -60,12 +69,15 @@ public class Main extends Frame {
         content.setBackground(Color.decode(content_bg));
         content.setPreferredSize(new Dimension(400, 500));
 
+
         //Add items to HEADER panels
         logo_panel.add(pn);
         header.add(logo_panel);
         header.add(btn_web);
         header.add(btn_book);
         header.add(database);
+       // picLabel.add(picLabel);  //todo add image as label here ?
+
 
 
         // Create Left Panel (ISBN search)
@@ -170,6 +182,7 @@ public class Main extends Frame {
 
                 String ret_data = clicked.connect("Reference added to Database");
                 System.out.println(ret_data);
+
 
             }
         });
