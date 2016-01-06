@@ -32,7 +32,7 @@ public class Main extends Frame {
         direct = current;
 
         // Create main Form
-        System.out.println("starting form");
+        System.out.println(direct);
         JFrame frame = new JFrame("Her Majesties Referencer");
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,15 +46,14 @@ public class Main extends Frame {
 
         // Set the logo image & panel
         JPanel logo_panel = new JPanel();
-        logo_panel.setPreferredSize(new Dimension(100, 50));
-        logo_panel.setBackground(Color.decode("#00ff00"));
-        JLabel pn = new JLabel("crown.png");
+        logo_panel.setPreferredSize(new Dimension(78, 39));
+        logo_panel.setBackground(Color.decode("#2d2d2f"));
+
+
+        // Make crown image (Direct is current directory)
+        BufferedImage myPicture = ImageIO.read(new File(direct + "/logo.png"));
+        JLabel pn = new JLabel(new ImageIcon(myPicture));
         pn.setForeground(Color.decode("#FFFFFF"));
-
-
-        //todo Look at images in panel
-      //  BufferedImage myPicture = ImageIO.read(new File("path-to-file"));
-     //  JLabel picLabel = new JLabel(new ImageIcon(myPicture));
 
 
         // create header buttons
@@ -76,7 +75,6 @@ public class Main extends Frame {
         header.add(btn_web);
         header.add(btn_book);
         header.add(database);
-       // picLabel.add(picLabel);  //todo add image as label here ?
 
 
 
@@ -250,11 +248,6 @@ public class Main extends Frame {
         });
 
     }
-
-// Function for auto completing forms.
-public void AutoAdd(JPanel MainPanel) {
-
-}
 }
 
 
