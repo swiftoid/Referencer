@@ -10,5 +10,6 @@
     <orderEntry type="library" name="java-json" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1" level="project" />
     <orderEntry type="library" name="json-20140107" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.38-bin" level="project" />
   </component>
 </module>

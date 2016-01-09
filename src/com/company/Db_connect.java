@@ -11,10 +11,16 @@ import java.sql.*;
  * Created by Andy on 02/01/2016.
  */
 ;
-         // todo still having bother with db conection .. ?
+         // todo  This seems to work individually, needs modulating into main.java class..
 
 
 public class Db_connect {
+
+    // connection  variables
+    // String host2 = "127.0.0.1";
+    String user = "root";
+    String pass = "Jim1doogan";
+    String host2 = "jdbc:mysql://localhost:3306/JavaApp";
 
 
     public String connect(String data) {
@@ -23,67 +29,66 @@ public class Db_connect {
 
 
         }
+
+
         try
 
         {
-
-            // connection  variables
-            String host2 = "127.0.0.1";
-            String user = "root";
-            String pass = "";
-
-
-            //SQL querey string
-            String str = "SELECT  * from referencer";
-
-
             // create the sql connection
             Connection con = DriverManager.getConnection(host2, user, pass);
+            System.out.println("Connected");
+            Statement stmt = (Statement) con.createStatement();
+            String ref_id = "22";
+            String reference ="Johnson, W. 2010, The Flight of the lorax etc etc";
+            String insert = "INSERT INTO 'JavaApp' , 'referencer' ('ref_id' , 'reference') VALUES ('"+ref_id+"','"+reference+"')";
+            stmt.executeUpdate(insert);
 
 
-            // create statement for database insert
-            Statement st = con.createStatement();
 
+        } catch (SQLException e) {
 
-            // execute querey   // change argument to change to insert command
-            ResultSet rs = st.executeQuery(str);
-
-
-            // GET THE STING FROM THE DATABASE // ARGUMENT LOOKS IN COLUMN 2.
-            String reference = rs.getString(2);
-            // move the value to 2ND ROW TO GE STRING.
-            rs.next();
-
-            // close the connection to the db
-            con.close();
-
-
-            // TODO  will this str results to carry through Main.java pannel
-            // print to terminal the content of reference table
-            System.out.print(str + "your ref");
-            return str;
-
-
-        } catch (
-                SQLException err
-                )
-
-        {
-
-            System.out.println(err.getMessage());
-
+            System.err.println(e);
         }
-
-
-        String data2 = data;
-        return data2;
-        // System.out.print(str + "your ref");
-        //  return str;
-
     }
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
