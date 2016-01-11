@@ -18,9 +18,10 @@ public class Db_connect {
 
     // connection  variables
     // String host2 = "127.0.0.1";
-    String user = "root";
-    String pass = "Jim1doogan";
-    String host2 = "jdbc:mysql://localhost:3306/JavaApp";
+    String user = "u603378190_admin";
+    String pass = "Urigellar";
+    // db is in host2 String db = "u603378190_ref";
+    String host2 = "jdbc:mysql://mysql.hostinger.co.uk/u603378190_ref";
 
 
     public String connect(String data) {
