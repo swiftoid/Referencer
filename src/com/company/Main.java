@@ -21,7 +21,10 @@ import java.io.IOException;
 public class Main extends Frame {
 
     public static String direct;
-    public static void main(String args[]) throws IOException {
+
+
+
+    public static void main(String args[])  throws IOException {
 
 
         // Default content background
