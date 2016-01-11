@@ -24,14 +24,7 @@ public class Db_connect {
     String host2 = "jdbc:mysql://mysql.hostinger.co.uk/u603378190_ref";
 
 
-    public String connect(String data) {
-
-        {
-
-
-        }
-
-
+    public void connect(String data) {
         try
 
         {
@@ -40,18 +33,19 @@ public class Db_connect {
             System.out.println("Connected");
             Statement stmt = (Statement) con.createStatement();
             String ref_id = "22";
-            String reference ="Johnson, W. 2010, The Flight of the lorax etc etc";
-            String insert = "INSERT INTO 'JavaApp' , 'referencer' ('ref_id' , 'reference') VALUES ('"+ref_id+"','"+reference+"')";
+            String reference = "Johnson, W. 2010, The Flight of the lorax etc etc";
+            String insert = "INSERT INTO 'JavaApp' , 'referencer' ('ref_id' , 'reference') VALUES ('" + ref_id + "','" + reference + "')";
             stmt.executeUpdate(insert);
-
 
 
         } catch (SQLException e) {
 
             System.err.println(e);
         }
+
     }
 }
+
 
 
 
