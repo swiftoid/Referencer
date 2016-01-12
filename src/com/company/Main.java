@@ -16,12 +16,12 @@ import java.io.IOException;
 
 
 
-    // Andy Swift 2nd Jan 2016 dthwrth
+    // Andy Swift 2nd Jan 2016
 
 public class Main extends Frame {
 
     public static String direct;
-
+    public static String content_bg;
 
 
     public static void main(String args[])  throws IOException {
@@ -30,7 +30,8 @@ public class Main extends Frame {
 
 
         // default background color
-        String content_bg = "#9BC29E";
+        content_bg = "#9BC29E";
+
 
 
         // Get the files current directory
@@ -66,7 +67,9 @@ public class Main extends Frame {
         // create header buttons
         JButton btn_web = new JButton("Website");
         JButton btn_book = new JButton("Book");
-
+        JButton greenButton = new JButton ("Green");
+        JButton blueButton = new JButton ("Blue");
+        JButton font = new JButton ("Change Font");
 
         // Set content panel
         JPanel content = new JPanel();
@@ -80,6 +83,9 @@ public class Main extends Frame {
         header.add(logo_panel);
         header.add(btn_web);
         header.add(btn_book);
+        header.add(blueButton);
+        header.add(greenButton);
+
 
 
 
@@ -160,6 +166,87 @@ public class Main extends Frame {
 
 
         // button ONCLICK events
+
+
+
+
+        greenButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                //panel_2.setBackground(Color.decode("#cccc00"));
+                String new_color;
+                if(content_bg == "#009933") {
+                    new_color = "#9BC29E";
+                }else {
+                    new_color = "#009933";
+                }
+                content_bg = new_color;
+                center.setBackground(Color.decode(new_color));
+                content.setBackground(Color.decode(new_color));
+                left.setBackground(Color.decode(new_color));
+                search_panel.setBackground(Color.decode(new_color));
+                search_inner.setBackground(Color.decode(new_color));
+
+                center.removeAll();
+                Panels newer = new Panels();
+                JPanel inner = new JPanel();
+                inner = newer.webpanel(jep);
+                inner.setBackground(Color.decode(content_bg));
+                inner.setPreferredSize(new Dimension(400, 400));
+                center.add(inner);
+                frame.pack();
+                //  CODE HERE  to call function for color change.
+
+
+            }
+
+
+        });
+
+
+
+
+
+        blueButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+
+                //panel_2.setBackground(Color.decode("#cccc00"));
+                String new_color;
+                if(content_bg == "#3399ff") {
+                    new_color = "#9BC29E";
+                }else {
+                    new_color = "#3399ff";
+                }
+                content_bg = new_color;
+                center.setBackground(Color.decode(new_color));
+                content.setBackground(Color.decode(new_color));
+                left.setBackground(Color.decode(new_color));
+                search_panel.setBackground(Color.decode(new_color));
+                search_inner.setBackground(Color.decode(new_color));
+
+                center.removeAll();
+                Panels newer = new Panels();
+                JPanel inner = new JPanel();
+                inner = newer.webpanel(jep);
+                inner.setBackground(Color.decode(content_bg));
+                inner.setPreferredSize(new Dimension(400, 400));
+                center.add(inner);
+                frame.pack();
+                //  CODE HERE  to call function for color change.
+
+
+                //  CODE HERE  to call function for color change
+
+            }
+
+
+        });
+
+
 
 
 

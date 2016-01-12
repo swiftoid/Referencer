@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.security.PrivateKey;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by COX08145982 on 16/12/2015.
@@ -14,8 +16,8 @@ public class Panels {
     private String auto_book_title;
     private String auto_book_date;
     private String auto_book_publisher;
+    private String labelColour = "#FFFFFF";
 
-    String [] bg_color = {"#99b3ff" , "" };
 
 
 
@@ -32,6 +34,10 @@ public class Panels {
           */
 
 
+
+
+
+
     private Font titleFont = new Font("Calibri", Font.TRUETYPE_FONT, 24);
     private Font mainFont = new Font("Calibri", Font.TRUETYPE_FONT, 18);
     public JPanel webpanel(JEditorPane jep){
@@ -41,6 +47,7 @@ public class Panels {
         JLabel title = new JLabel("Website:");
         title.setFont(titleFont);
         inner.add(title);
+
         // Add a panel as a spacer
         JPanel spacer = new JPanel();
         spacer.setPreferredSize(new Dimension(400, 1));
@@ -90,44 +97,10 @@ public class Panels {
 
         JButton Cbutton = new JButton("Create Reference");
         JButton example = new JButton("Generate Example");
-
-        //  jgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-        JButton change = new JButton ("Change Font");
-        JButton color = new JButton("Change Color");
         inner.add(Cbutton);
         inner.add(example);
-        inner.add(color);
-        inner.add(change);
 
 
-        example.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-
-               //  CODE HERE  to call function for color change.
-
-
-                }
-
-
-
-
-
-
-        });
-
-
-        color.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                ///  code here for this please ...
-
-
-            }
-        });
 
 
         Cbutton.addActionListener(new ActionListener() {
