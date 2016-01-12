@@ -177,7 +177,7 @@ public class Main extends Frame {
                 //panel_2.setBackground(Color.decode("#cccc00"));
                 String new_color;
                 if(content_bg == "#009933") {
-                    new_color = "#9BC29E";
+                    new_color = "#009999";
                 }else {
                     new_color = "#009933";
                 }
