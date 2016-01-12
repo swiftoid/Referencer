@@ -86,7 +86,7 @@ public class Panels {
                 String addr = Ctextfield_5.getText();
 
                 String accessed = Ctextfield_6.getText();
-                String full = author + date + title + publisher + ". [ONLINE] Available at: " + addr + " [Accessed: " + accessed + "]";
+                String full = author + date + title + publisher + ". [ONLINE] Available at: " + addr + " (Accessed: " + accessed + ")";
                 // The output string (used html tags for format)
                 //String to_return = author + ", (" + date + "). \"<i>" + title + "</i>\"." + publisher + ". [online] avaiable at: " + addr + ". Last accessed: " + accessed;
                 //System.out.println(to_return);
@@ -181,10 +181,10 @@ public class Panels {
 
         Example.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Ctextfield_1.setText("Chris Cox");
-                Ctextfield_2.setText("2009");
-                Ctextfield_3.setText("How to make a referencer");
-                Ctextfield_4.setText("website.com");
+                Ctextfield_1.setText("Andy Swift");
+                Ctextfield_2.setText("1972");
+                Ctextfield_3.setText("Fortune favours the brave");
+                Ctextfield_4.setText("keepitcash.net");
                 Ctextfield_5.setText("http://website.com/article/23432224423");
             }
         });
