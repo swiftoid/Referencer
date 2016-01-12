@@ -91,7 +91,10 @@ public class Panels {
                 //String to_return = author + ", (" + date + "). \"<i>" + title + "</i>\"." + publisher + ". [online] avaiable at: " + addr + ". Last accessed: " + accessed;
                 //System.out.println(to_return);
 
-                jep.setText("<div style=\"font-family:calibri;width:400px\">" + full + "</center>");
+
+                // Method to create actusl reference   //
+
+                jep.setText("<div style=\"font-family:calibri;width:400px\">" + full + "</div>");
             }
         });
 
@@ -177,15 +180,15 @@ public class Panels {
 
 
         JButton Cbutton = new JButton("Create reference");
-        JButton Example = new JButton("Exampple");
+        JButton Example = new JButton("Example");
 
         Example.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Ctextfield_1.setText("Andy Swift");
                 Ctextfield_2.setText("1972");
                 Ctextfield_3.setText("Fortune favours the brave");
-                Ctextfield_4.setText("keepitcash.net");
-                Ctextfield_5.setText("http://website.com/article/23432224423");
+                Ctextfield_4.setText("Lorax Publishing");
+                Ctextfield_5.setText("London");
             }
         });
         inner.add(Cbutton);
@@ -202,7 +205,11 @@ public class Panels {
                 String addr = Ctextfield_5.getText();
 
 
-                jep.setText("<div style=\"font-family:calibri;width:400px\">"+author+"</center>");
+
+
+                String full2 = author + date + title + publisher + ". Published in " + addr;
+
+                jep.setText("<div style=\"font-family:calibri;width:400px\">"+full2+"</div>");
 
                 System.out.println(Ctextfield_1.getText() + " is the author");
                 Ctextfield_5.setText(Ctextfield_1.getText() + "\"" + Ctextfield_4.getText() + "\"");
