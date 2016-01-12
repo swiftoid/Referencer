@@ -27,9 +27,12 @@ public class Main extends Frame {
     public static void main(String args[])  throws IOException {
 
 
-        // Default content background
+
+
+        // default background color
         String content_bg = "#9BC29E";
-        // ggg
+
+
         // Get the files current directory
         String current = new java.io.File(".").getCanonicalPath();
         direct = current;
@@ -37,6 +40,7 @@ public class Main extends Frame {
         // Create main Form
         System.out.println(direct);
         JFrame frame = new JFrame("Her Majesties Referencer");
+        frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(700, 300);

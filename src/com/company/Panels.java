@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.PrivateKey;
 
 /**
  * Created by COX08145982 on 16/12/2015.
@@ -13,6 +14,23 @@ public class Panels {
     private String auto_book_title;
     private String auto_book_date;
     private String auto_book_publisher;
+
+    String [] bg_color = {"#99b3ff" , "" };
+
+
+
+/*
+    anAaray (of hexidecial colors here )
+
+    int (array position = 0 )
+
+        array position ++
+
+      Setbackground (array [array position])
+
+          catch if array pos = < number of colors then start again.
+          */
+
 
     private Font titleFont = new Font("Calibri", Font.TRUETYPE_FONT, 24);
     private Font mainFont = new Font("Calibri", Font.TRUETYPE_FONT, 18);
@@ -72,8 +90,45 @@ public class Panels {
 
         JButton Cbutton = new JButton("Create Reference");
         JButton example = new JButton("Generate Example");
+
+        //  jgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+        JButton change = new JButton ("Change Font");
+        JButton color = new JButton("Change Color");
         inner.add(Cbutton);
         inner.add(example);
+        inner.add(color);
+        inner.add(change);
+
+
+        example.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+               //  CODE HERE  to call function for color change.
+
+
+                }
+
+
+
+
+
+
+        });
+
+
+        color.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                ///  code here for this please ...
+
+
+            }
+        });
+
 
         Cbutton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -112,7 +167,6 @@ public class Panels {
         return inner;
 
     }
-
 
 
 
